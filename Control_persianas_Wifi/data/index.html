@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="">
+
+<head>
+  <title>Shutter Control</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title></title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <link rel="stylesheet" href="css/main.css">
+  <link href="./vendor/google-fonts.css" rel="stylesheet">
+  <link href="./vendor/vuetify.min.css" rel="stylesheet">
+
+  <v-app id="app">
+    <v-toolbar app>Control Persianas Blanes</v-toolbar>
+    <v-content>
+      <v-container>
+        <v-row no-gutters>
+            <v-col md="6">
+                <v-card>
+                  <v-toolbar color="blue" dark>
+                    <v-toolbar-title class="text-xs-center">Persiana 1</v-toolbar-title>
+                  </v-toolbar>
+                  <v-list subheader>
+                      <action v-for="item in action_list1" :action="item" :key="item.id" />
+                    </v-list>
+                  </v-card>
+             </v-col>
+
+             <v-col md="6">
+                  <v-card>
+                    <v-toolbar color="blue" dark>
+                      <v-toolbar-title class="text-xs-center">Persiana 2</v-toolbar-title>
+                    </v-toolbar>
+                    <v-list subheader>
+                        <action v-for="item in action_list2" :action="item" :key="item.id" />
+                    </v-list>
+                  </v-card>
+              </v-col>
+
+          <v-row>
+      </v-container>
+    </v-content>
+  </v-app>
+
+  <!-- Desde CDN -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+  <script type="text/javascript" src="./vendor/vue.min.js"></script>
+  <script type="text/javascript" src="./vendor/vuetify.min.js"></script>
+  <script type="text/javascript" src="./vendor/nativeWs.min.js"></script>
+
+  <!-- Cargamos el fichero que contiene nuestra App en Vue.JS -->
+  <script type="text/javascript" src="./js/app.js"></script>
+</body>
+
+</html>
