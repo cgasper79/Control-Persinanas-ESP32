@@ -16,29 +16,33 @@
   <link href="./vendor/vuetify.min.css" rel="stylesheet">
 
   <v-app id="app">
-    <v-toolbar app>Control Persianas Blanes</v-toolbar>
+    <v-toolbar dark app>Control Persianas Blanes</v-toolbar>
     <v-content>
       <v-container>
-        <v-row no-gutters>
-            <v-col md="6">
-                <v-card>
-                  <v-toolbar color="blue" dark>
-                    <v-toolbar-title class="text-xs-center">Persiana 1</v-toolbar-title>
+        <v-row>
+            <v-col sm="6">
+                <v-card flat light>
+                  <v-toolbar dark >
+                    <v-toolbar-title>Persiana 1</v-toolbar-title>
                   </v-toolbar>
-                  <v-list subheader>
+                  <v-container grid-list-md text-xs-center>
+                    <v-list>
                       <action v-for="item in action_list1" :action="item" :key="item.id" />
                     </v-list>
-                  </v-card>
+                  </v-container>  
+                </v-card>
              </v-col>
 
-             <v-col md="6">
+             <v-col sm="6">
                   <v-card>
-                    <v-toolbar color="blue" dark>
-                      <v-toolbar-title class="text-xs-center">Persiana 2</v-toolbar-title>
+                    <v-toolbar dark>
+                      <v-toolbar-title>Persiana 2</v-toolbar-title>
                     </v-toolbar>
-                    <v-list subheader>
+                    <v-container grid-list-md text-xs-center>
+                      <v-list>
                         <action v-for="item in action_list2" :action="item" :key="item.id" />
-                    </v-list>
+                      </v-list>
+                    </v-container>
                   </v-card>
               </v-col>
 

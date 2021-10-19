@@ -4,14 +4,10 @@ Vue.use(VueNativeSock.default, 'ws://' + location.hostname + '/ws', { format: 'j
 Vue.component('action', {
   props: ['action'],
   template: `
-        <v-list-tile avatar>
-        <v-list-tile-content>
-          <v-list-tile-title>{{action.text}}</v-list-tile-title>
-        </v-list-tile-content>
-      <v-list-tile-action>
-      <v-btn text small color="flat" @click="doAction">Ejecutar</v-btn>
-      </v-list-tile-action>
-      </v-list-tile>
+      <v-btn fab large color="secondary" @click="doAction">{{action.text}}
+      </v-btn>
+     
+      
 `,
   methods: {
     doAction: function (evt) {
