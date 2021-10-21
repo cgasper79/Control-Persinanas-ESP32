@@ -7,14 +7,13 @@ char codigoStop1[] = "0Q0F010FFF0F0Q0FFFFF";   //Constante que almacena el codig
 char codigoSubir2[] = "0Q00010F11Q0Q10F0F1Q";  //Constante que almacena el codigo del mando para subir la persiana 2
 char codigoBajar2[] = "0Q00010F11Q0Q10F0110";  //Constante que almacena el codigo del mando para bajar la persiana 2
 char codigoStop2[] = "0Q00010F11Q0Q10FFFFF";   //Constante que almacena el codigo del mando para parar la persiana 2
-const int LED = 4; 
+const int LED = 13; 
 
 
 void InitRF(){
 
   Serial.println("Iniciamos RF");
-  pinMode(LED, OUTPUT);
-  mySwitch.enableTransmit(LED);  //Transmitimos RF por el pin 9
+  mySwitch.enableTransmit(LED);  //Transmitimos RF por el pin D13
   mySwitch.setProtocol(4);    //Seleccionamos el protocol QUADSTATE  
 }
 
