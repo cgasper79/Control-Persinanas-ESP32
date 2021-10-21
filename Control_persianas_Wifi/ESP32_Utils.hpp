@@ -1,3 +1,5 @@
+
+// Funcionamiento como cliente wifi
 void ConnectWiFi_STA(bool useStaticIP = true)
 {
    Serial.println("");
@@ -15,8 +17,13 @@ void ConnectWiFi_STA(bool useStaticIP = true)
    Serial.println(ssid);
    Serial.print("IP address:\t");
    Serial.println(WiFi.localIP());
+   digitalWrite(2, HIGH);  //Activamos led interno para indicar conexión WIFI establecida
+   
+   
 }
 
+
+//Funcionamiento como AP
 void ConnectWiFi_AP(bool useStaticIP = true)
 { 
    Serial.println("");

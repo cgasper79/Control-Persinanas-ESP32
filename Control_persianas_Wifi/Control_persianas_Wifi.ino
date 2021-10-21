@@ -21,6 +21,8 @@ void setup(void)
 {
    Serial.begin(115200);
    SPIFFS.begin();
+
+   pinMode (2,OUTPUT);  //Pin interno placa que indica conexión wifi conectado
    
    ConnectWiFi_STA();
    
