@@ -3,10 +3,9 @@ Vue.use(VueNativeSock.default, 'ws://' + location.hostname + '/ws', { format: 'j
 
 Vue.component('action', {
   props: ['action'],
-  template: `
-      <v-btn fab large color="secondary" @click="doAction">{{action.text}}
-      </v-btn>
-     
+  template: ` 
+        <v-btn fab large color="#FF1744" @click="doAction">{{action.text}}
+        </v-btn>    
       
 `,
   methods: {
@@ -38,6 +37,11 @@ var app = new Vue({
         { id: 3, text: 'Subir', callback: () => console.log("Subir2") },
         { id: 4, text: 'Bajar', callback: () => console.log("Bajar2") },
         { id: 5, text: 'Stop', callback: () => console.log("Stop2") },
+      ],
+      action_list3: [
+        { id: 6, text: 'Subir', callback: () => console.log("SubirTodo") },
+        { id: 7, text: 'Bajar', callback: () => console.log("BajarTodo") },
+        { id: 8, text: 'Stop', callback: () => console.log("StopTodo") },
       ]
     }
   },

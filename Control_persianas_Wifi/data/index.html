@@ -1,52 +1,50 @@
-<!doctype html>
-<html lang="">
+<!DOCTYPE html>
+<html lang="ES">
 
 <head>
-  <title>Shutter Control</title>
+  <title>Shutter Control v1.0</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title></title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="./vendor/vuetify.min.css" rel="stylesheet">
+  <!-- FAVICON -->
+	<link rel="apple-touch-icon" href="favicon.png" />
+	<link rel="icon" href="favicon.png" type="image/png" />
 </head>
 
 <body>
-  <link rel="stylesheet" href="css/main.css">
-  <link href="./vendor/google-fonts.css" rel="stylesheet">
-  <link href="./vendor/vuetify.min.css" rel="stylesheet">
-
+  
   <v-app id="app">
-    <v-toolbar dark app>Control Persianas Blanes</v-toolbar>
-    <v-content>
-      <v-container>
-        <v-row>
-            <v-col sm="6">
-                <v-card flat light>
-                  <v-toolbar dark >
-                    <v-toolbar-title>Persiana 1</v-toolbar-title>
-                  </v-toolbar>
-                  <v-container grid-list-md text-xs-center>
-                    <v-list>
-                      <action v-for="item in action_list1" :action="item" :key="item.id" />
-                    </v-list>
-                  </v-container>  
-                </v-card>
-             </v-col>
-
-             <v-col sm="6">
-                  <v-card>
-                    <v-toolbar dark>
-                      <v-toolbar-title>Persiana 2</v-toolbar-title>
-                    </v-toolbar>
-                    <v-container grid-list-md text-xs-center>
-                      <v-list>
-                        <action v-for="item in action_list2" :action="item" :key="item.id" />
-                      </v-list>
-                    </v-container>
-                  </v-card>
-              </v-col>
-
-          <v-row>
+    <v-content class="red lighten-4">
+      <v-toolbar elevation="5" class="red accent-1" light><v-icon>mdi-access-point</v-icon> <h3> Control persianas v1.0</h3>
+        
+      </v-toolbar>
+      <v-container fluid text-xs-center>
+        <v-layout>  
+          <v-card elevation="3" light>
+            <v-card-title class="red accent-1"><h3>Persiana 1</h3></v-card-title>
+            <v-list class="red accent-1">
+                <action v-for="item in action_list1" :action="item" :key="item.id" />
+            </v-list> 
+          </v-card>
+        
+          <v-card elevation="24" light>
+            <v-card-title class="red accent-1"><h3>Múltiple</h3></v-card-title>
+            <v-list class="red accent-1">
+              <action v-for="item in action_list3" :action="item" :key="item.id" />
+            </v-list> 
+          </v-card>
+       
+          <v-card elevation="3" light>
+            <v-card-title class="red accent-1"><h3>Persiana 2</h3></v-card-title>
+            <v-list class="red accent-1">
+              <action v-for="item in action_list2" :action="item" :key="item.id" />
+            </v-list>
+          </v-card>
+        </v-layout>
       </v-container>
     </v-content>
   </v-app>
