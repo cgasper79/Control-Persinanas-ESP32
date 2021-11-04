@@ -4,17 +4,13 @@
 #include <ArduinoJson.h>
 #include <RCSwitch.h>
 
- 
 #include "config.h"
 #include "Server.hpp"
-
 #include "RF.hpp"
 #include "API.hpp"
 #include "Websockets.hpp"
 #include "ESP32_Utils.hpp"
 #include "ESP32_Utils_AWS.hpp"
-
-
 
 
 void setup(void) 
@@ -23,7 +19,7 @@ void setup(void)
    SPIFFS.begin();
 
    pinMode (2,OUTPUT);  //Pin interno placa que indica conexión wifi conectado
-   
+      
    ConnectWiFi_STA();
    
    InitServer();
@@ -32,7 +28,7 @@ void setup(void)
 }
 
 
-void loop()
+void loop()   
 {
-  
+  temporizadoMediaPersiana();
 }

@@ -25,10 +25,40 @@ Vue.component('action', {
   }
 })
 
+
+Vue.component('gpio-output', {
+  props: ['gpio'],
+  template: ` 
+    <v-list-tile avatar>
+      <v-list-tile-content>
+        <v-list-tile-title>{{gpio.text}}</v-list-tile-title>
+      </v-list-tile-content>
+      <v-list-tile-action>
+        <v-switch v-model="gpio.status" class="ma-2" :label="gpio.status ? 'ON' : 'OFF'" @change="sendGPIO"></v-switch>
+      </v-list-tile-action>
+    </v-list-tile>
+`,
+  methods: {
+    sendGPIO: function (evt) {
+      console.log(this.gpio.id + ': ' + this.gpio.status);
+
+      let data = {
+        command: "setGPIO",
+        id: this.gpio.id,
+        status: this.gpio.status
+      }
+      
+      let json = JSON.stringify(data);
+      this.$socket.send(json);
+    }
+  }
+})
+
 var app = new Vue({
   el: '#app',
   data: function () {
     return {
+
       action_list1: [
         { id: 0, text: 'mdi-chevron-up-circle-outline', callback: () => console.log("Subir1") },
         { id: 2, text: 'mdi-circle-outline', callback: () => console.log("Stop1") },
@@ -43,7 +73,12 @@ var app = new Vue({
         { id: 6, text: 'mdi-chevron-up-circle-outline', callback: () => console.log("SubirTodo") },
         { id: 8, text: 'mdi-circle-outline', callback: () => console.log("StopTodo") },
         { id: 7, text: 'mdi-chevron-down-circle-outline', callback: () => console.log("BajarTodo") },
-      ]
+      ],
+
+      gpio_output_list: [
+        { id: 9, text: 'Modo Automático Noche/dia', status: 0 },
+        { id: 10, text: 'Mitad persiana', status: 0 },
+      ],
     }
   },
   mounted() {

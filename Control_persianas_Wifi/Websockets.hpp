@@ -9,4 +9,6 @@ void ProcessRequest(AsyncWebSocketClient *client, String request)
   String command = doc["command"];
   if(command == "doAction")
     doAction(doc["id"]);
+  else if(command == "setGPIO") 
+    setGPIO(doc["id"], (bool)doc["status"]);
 }
