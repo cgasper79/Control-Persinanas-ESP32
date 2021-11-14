@@ -1,7 +1,7 @@
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 3600, 60000);
 
-void modoNocheDiaAuto()
+void modoAuto()
 {
   timeClient.update();
   while(!timeClient.update()) {
