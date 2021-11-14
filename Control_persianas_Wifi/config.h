@@ -17,7 +17,7 @@ bool mitadPersiana = false;
 //variables detección boton subir
 bool botonSubir = false;
 
-//Variables tiempo y modo automático
+//Variables tiempo y modo automático Noche
 int tiempoTotalSubida = 24; //en segundos
 int horaBajadaAuto = 23;
 int minutoBajadaAuto = 59;
