@@ -1,8 +1,11 @@
 #include <WiFi.h>
+#include <NTPClient.h>
+#include <WiFiUdp.h>
 #include <SPIFFS.h>
 #include <ESPAsyncWebServer.h>
 #include <ArduinoJson.h>
 #include <RCSwitch.h>
+
 
 #include "config.h"
 #include "Server.hpp"
@@ -11,6 +14,7 @@
 #include "Websockets.hpp"
 #include "ESP32_Utils.hpp"
 #include "ESP32_Utils_AWS.hpp"
+#include "Timer.hpp"
 
 
 void setup(void) 
@@ -25,10 +29,13 @@ void setup(void)
    InitServer();
    InitWebSockets();
    InitRF();
+   InitTime();
+   
 }
 
 
 void loop()   
 {
   temporizadoMediaPersiana();
+  modoNocheDiaAuto();
 }

@@ -19,7 +19,6 @@ Vue.component('action', {
 
       let json = JSON.stringify(data);
       this.$socket.send(json);
-
       this.action.callback();
     }
   }
@@ -76,7 +75,7 @@ var app = new Vue({
       ],
 
       gpio_output_list: [
-        { id: 9, text: 'Modo Automático Noche/dia', status: 0 },
+        { id: 9, text: 'Modo Automático Noche', status: 0 },
         { id: 10, text: 'Mitad persiana', status: 0 },
       ],
     }

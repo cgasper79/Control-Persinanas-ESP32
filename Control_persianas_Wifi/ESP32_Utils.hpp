@@ -5,7 +5,7 @@ void ConnectWiFi_STA(bool useStaticIP = true)
    Serial.println("");
    WiFi.mode(WIFI_STA);
    WiFi.begin(ssid, password);
-   if(useStaticIP) WiFi.config(ip, gateway, subnet);
+   if(useStaticIP) WiFi.config(ip, gateway, subnet, primaryDNS, secondaryDNS);
    while (WiFi.status() != WL_CONNECTED) 
    { 
      delay(100);  
@@ -17,6 +17,14 @@ void ConnectWiFi_STA(bool useStaticIP = true)
    Serial.println(ssid);
    Serial.print("IP address:\t");
    Serial.println(WiFi.localIP());
+   Serial.print("ESP Mac Address: ");
+   Serial.println(WiFi.macAddress());
+   Serial.print("Subnet Mask: ");
+   Serial.println(WiFi.subnetMask());
+   Serial.print("Gateway IP: ");
+   Serial.println(WiFi.gatewayIP());
+   Serial.print("DNS: ");
+   Serial.println(WiFi.dnsIP());
    digitalWrite(2, HIGH);  //Activamos led interno para indicar conexión WIFI establecida
    
 }
