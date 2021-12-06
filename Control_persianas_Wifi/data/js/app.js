@@ -40,7 +40,6 @@ Vue.component('gpio-output', {
   methods: {
     sendGPIO: function (evt) {
       console.log(this.gpio.id + ': ' + this.gpio.status);
-
       let data = {
         command: "setGPIO",
         id: this.gpio.id,
@@ -83,8 +82,8 @@ var app = new Vue({
   mounted() {
     this.$socket.onmessage = (dr) => {
       console.log(dr);
-      let json = JSON.parse(dr.data);
-      let gpio = this.$data.gpio_input_list.find(gpio => gpio.text == json.id);
+      let json = JSON.parse(dr.data); 
+      let gpio = this.$data.gpio_output_list.find(gpio => gpio.id == json.id);
       gpio.status = json.status;
     }
   }
