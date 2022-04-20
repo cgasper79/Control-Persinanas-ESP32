@@ -2,10 +2,10 @@
 //Detección modos funcionamiento
 void setGPIO(String id, bool state)
 {
-   Serial.print("Set GPIO ");
-   Serial.print(id);
-   Serial.print(": ");
-   Serial.println(state);
+   //Serial.print("Set GPIO ");
+   //Serial.print(id);
+   //Serial.print(": ");
+   //Serial.println(state);
 
    switch (id.toInt() ){
     

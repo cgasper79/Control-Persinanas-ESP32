@@ -1,5 +1,5 @@
 WiFiUDP ntpUDP;
-NTPClient timeClient(ntpUDP, "europe.pool.ntp.org", 3600, 60000);
+NTPClient timeClient(ntpUDP, "es.pool.ntp.org", 3600, 60000);
 
 //Modo automatico persianas
 
@@ -21,8 +21,8 @@ void modoAuto()
     }
   }
   //Serial.println(timeClient.getFormattedTime());
-  //Serial.println(timeClient.getHours());
-  //Serial.println(timeClient.getMinutes());
+  Serial.println(timeClient.getHours());
+  Serial.println(timeClient.getMinutes());
   
 }
 
