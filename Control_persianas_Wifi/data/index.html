@@ -1,118 +1,86 @@
 <!DOCTYPE html>
 <html lang="ES">
-  <head>
-    <title>Shutter Control v1.0</title>
-    <meta charset="utf-8" />
-    <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui"
-    />
-    <link
-      href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link href="./vendor/vuetify.min.css" rel="stylesheet" />
-    <!-- FAVICON -->
-    <link rel="apple-touch-icon" href="favicon.png" />
-    <link rel="icon" href="favicon.png" type="image/png" />
-  </head>
 
-  <body>
-    <v-app id="app">
-      <v-content class="red lighten-4">
-        <v-toolbar elevation="5" class="red accent-1" light
-          ><v-icon class="pa-2">mdi-access-point</v-icon>
-          <h3>Control persianas v1.0</h3>
-        </v-toolbar>
-        <v-container fluid text-xs-center>
-          <v-layout class="d-flex">
-            <div class="pa-1">
-              <v-card elevation="3" light text-md-center>
-                <v-card-title class="red accent-1"
-                  ><h3>Izquierda</h3></v-card-title
-                >
-                <v-list class="red accent-1">
-                  <action
-                    v-for="item in action_list1"
-                    :action="item"
-                    :key="item.id"
-                  />
-                </v-list>
-              </v-card>
-            </div>
+<head>
+  <title>Shutter Control v1.0</title>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="./css/main.css">
+  <link href="./vendor/vuetify.min.css" rel="stylesheet">
+  <!-- FAVICON -->
+	<link rel="apple-touch-icon" href="favicon.png" />
+	<link rel="icon" href="favicon.png" type="image/png" />
+</head>
 
-            <div class="pa-1">
-              <v-card elevation="3" light>
-                <v-card-title class="red accent-1"
-                  ><h3 class="text-center">Múltiple</h3></v-card-title
-                >
-                <v-list class="red accent-1">
-                  <action
-                    v-for="item in action_list3"
-                    :action="item"
-                    :key="item.id"
-                  />
-                </v-list>
-              </v-card>
-            </div>
+<body>
+  
+  <v-app id="app">
+    <v-content class="red lighten-4">
+      <v-toolbar elevation="5" class="red accent-1" light><v-icon class="pa-2">mdi-access-point</v-icon> <h3> Control persianas v1.0</h3>
+      </v-toolbar>
+      <v-container fluid text-xs-center>
+        <v-layout class="d-flex">
+          <div class="pa-1">
+          <v-card elevation="3" light text-md-center>
+            <v-card-title class="red accent-1"><h3>Izquierda</h3></v-card-title>
+            <v-list class="red accent-1">
+                <action v-for="item in action_list1" :action="item" :key="item.id" />
+            </v-list> 
+          </v-card>
+          </div>
 
-            <div class="pa-1">
-              <v-card elevation="3" light>
-                <v-card-title class="red accent-1"
-                  ><h3>Derecha</h3></v-card-title
-                >
-                <v-list class="red accent-1">
-                  <action
-                    v-for="item in action_list2"
-                    :action="item"
-                    :key="item.id"
-                  />
-                </v-list>
-              </v-card>
-            </div>
-          </v-layout>
+          <div class="pa-1">
+          <v-card elevation="3" light>
+            <v-card-title class="red accent-1"><h3 class="text-center">Múltiple</h3></v-card-title>
+            <v-list class="red accent-1">
+              <action v-for="item in action_list3" :action="item" :key="item.id" />
+            </v-list> 
+          </v-card>
+          </div>
+          
+          <div class="pa-1">
+          <v-card elevation="3" light>
+            <v-card-title class="red accent-1"><h3>Derecha</h3></v-card-title>
+            <v-list class="red accent-1">
+              <action v-for="item in action_list2" :action="item" :key="item.id" />
+            </v-list>
+          </v-card>
+          </div>
+        </v-layout>
 
-          <v-layout class="d-flex">
-            <div class="pa-1">
-              <v-card elevation="24" light>
-                <v-card-title class="red accent-1"
-                  ><h3>Modos funcionamiento</h3></v-card-title
-                >
-                <v-list class="red accent-1">
-                  <gpio-output
-                    v-for="item in gpio_output_list"
-                    v-bind:gpio="item"
-                    v-bind:key="item.id"
-                  />
-                </v-list>
-              </v-card>
-            </div>
-          </v-layout>
-        </v-container>
-      </v-content>
-    </v-app>
+        <v-layout class="d-flex">
+          <div class="pa-1">
+            <v-card elevation="24" light>
+              <v-card-title class="red accent-1"><h3>Modos funcionamiento</h3></v-card-title>
+              <v-list class="red accent-1">
+                <gpio-output v-for="item in gpio_output_list" v-bind:gpio="item" v-bind:key="item.id" />
+              </v-list>
+            </v-card>
+          </div>
+        </v-layout>
+      </v-container>
+    </v-content>
+  </v-app>
 
-    <!-- Desde CDN -->
-    <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
-    <script type="text/javascript" src="./vendor/vue.min.js"></script>
-    <script type="text/javascript" src="./vendor/vuetify.min.js"></script>
-    <script type="text/javascript" src="./vendor/nativeWs.min.js"></script>
+  <!-- Desde CDN -->
+  <!--<script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.min.js"></script>-->
+  <script type="text/javascript" src="./vendor/vue.min.js"></script>
+  <script type="text/javascript" src="./vendor/vuetify.min.js"></script>
+  <script type="text/javascript" src="./vendor/nativeWs.min.js"></script>
 
-    <!-- Cargamos el fichero que contiene nuestra App en Vue.JS -->
-    <script type="text/javascript" src="./js/app.js"></script>
+  <!-- Cargamos el fichero que contiene nuestra App en Vue.JS -->
+  <script type="text/javascript" src="./js/app.js"></script>
+  
+  <script type="text/javascript">
+    function actualizar(){
+      location.reload(true);
+    }
+    //Función para actualizar cada 180 segundos
+    setInterval("actualizar()",180000);
+  </script>
+</body>
 
-    <script type="text/javascript">
-      function actualizar() {
-        location.reload(true);
-      }
-      //Función para actualizar cada 180 segundos
-      setInterval("actualizar()", 180000);
-    </script>
-  </body>
 </html>

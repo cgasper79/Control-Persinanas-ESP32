@@ -6,6 +6,7 @@
 #include <ArduinoJson.h>
 #include <RCSwitch.h>
 
+
 #include "config.h"
 #include "Server.hpp"
 #include "RF.hpp"
@@ -15,25 +16,29 @@
 #include "ESP32_Utils_AWS.hpp"
 #include "Timer.hpp"
 
-void setup(void)
+
+void setup(void) 
 {
-  Serial.begin(9600);
-  SPIFFS.begin();
+   Serial.begin(115200);
+   SPIFFS.begin();
 
-  pinMode(2, OUTPUT); // Pin interno placa que indica conexión wifi conectado
-
-  ConnectWiFi_STA();
-
-  InitServer();
-  InitWebSockets();
-  InitRF();
-  InitTime();
+   pinMode (2,OUTPUT);  //Pin interno placa que indica conexión wifi conectado
+      
+   ConnectWiFi_STA();
+   
+   InitServer();
+   InitWebSockets();
+   InitRF();
+   InitTime();
+   
 }
 
-void loop()
+
+void loop()   
 {
   delay(500);
   temporizadoMediaPersiana();
   modoAuto();
   setStateMode();
+
 }

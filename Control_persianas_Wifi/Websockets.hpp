@@ -24,8 +24,8 @@ void updateWeb(int input, bool value)
 
   ws.textAll(response);
 
-  //Serial.print(input);
-  //Serial.println(value ? String(" ON") : String(" OFF"));
+  Serial.print(input);
+  Serial.println(value ? String(" ON") : String(" OFF"));
 }
 
 //Envio estado Modos a Web
