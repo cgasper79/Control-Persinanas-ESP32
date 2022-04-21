@@ -36,5 +36,6 @@ void loop()
   modoAuto();
   setStateMode();
   horaNTP();
+  ReconnectionWifi();
   delay(1000);
 }

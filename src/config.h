@@ -10,6 +10,10 @@ IPAddress subnet(255, 255, 255, 0);
 IPAddress primaryDNS(1, 1, 1, 1); 
 IPAddress secondaryDNS(1, 0, 0, 1);
 
+// variables para tiempo reconexion wifi (cada 30 segundos comprueba)
+unsigned long previousMillis = 0;
+unsigned long interval = 30000;
+
 //Variables configuración
 bool modoNoche = true;
 bool modoDia = false; 

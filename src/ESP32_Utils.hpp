@@ -29,6 +29,21 @@ void ConnectWiFi_STA(bool useStaticIP = true)
    
 }
 
+// Reconexion Wifi si detecta que no está conectado
+
+void ReconnectionWifi(){
+  unsigned long currentMillis = millis();
+
+  if ((WiFi.status() != WL_CONNECTED) && (currentMillis - previousMillis >=interval)) {
+    digitalWrite(2, LOW);
+    WiFi.disconnect();
+    WiFi.reconnect();
+    previousMillis = currentMillis;
+  }else{
+    digitalWrite(2, HIGH);
+  }
+}
+
 //Funcionamiento como AP
 void ConnectWiFi_AP(bool useStaticIP = true)
 { 
