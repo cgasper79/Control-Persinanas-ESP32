@@ -1,5 +1,5 @@
 
-//Detección modos funcionamiento
+//Detección modos Configuración
 void setGPIO(String id, bool state)
 {
    //Serial.print("Set GPIO ");
@@ -14,10 +14,19 @@ void setGPIO(String id, bool state)
       modoNoche = (state);
       break;
 
-    // Mitad recorrido persiana
+    // Modo Noche
     case 10:
+      modoDia = (state);
+      break;
+
+    // Mitad recorrido persiana
+    case 11:
       mitadPersiana  = (state);
       break;
+
+    // Horario Verano
+    case 12:
+      horarioVerano = (state);
 
     default:
       break;

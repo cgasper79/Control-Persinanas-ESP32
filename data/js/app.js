@@ -1,13 +1,27 @@
 Vue.use(VueNativeSock.default, 'ws://' + location.hostname + '/ws', { format: 'json' })
 
+//Información
+Vue.component('gpio-input', {
+  props: ['gpio'],
+  template: `
+    <v-list-tile avatar>
+      <v-list-tile-content>
+        <v-list-tile-title><h4>{{gpio.text}}</h4></v-list-tile-title>
+      </v-list-tile-content>
+    <v-list-tile-action>
+      {{gpio.status}}
+    </v-list-tile-action>
+    </v-list-tile>
+    `
+})
 
+//Botones Persianas
 Vue.component('action', {
   props: ['action'],
   template: ` 
         <v-btn fab large color="#FF1744" @click="doAction">
         <v-icon>{{action.text}}</v-icon>
-        </v-btn>    
-      
+        </v-btn>         
 `,
   methods: {
     doAction: function (evt) {
@@ -16,7 +30,6 @@ Vue.component('action', {
         command: "doAction",
         id: this.action.id,
       }
-
       let json = JSON.stringify(data);
       this.$socket.send(json);
       this.action.callback();
@@ -24,7 +37,7 @@ Vue.component('action', {
   }
 })
 
-
+//Configuraciones
 Vue.component('gpio-output', {
   props: ['gpio'],
   template: ` 
@@ -45,12 +58,13 @@ Vue.component('gpio-output', {
         id: this.gpio.id,
         status: this.gpio.status
       }
-      
       let json = JSON.stringify(data);
       this.$socket.send(json);
     }
   }
 })
+
+
 
 var app = new Vue({
   el: '#app',
@@ -75,8 +89,19 @@ var app = new Vue({
 
       gpio_output_list: [
         { id: 9, text: 'Modo Automático Noche', status: 0 },
-        { id: 10, text: 'Mitad persiana', status: 0 },
+        { id: 10, text: 'Modo Automático Dia', status: 0 },
+        { id: 11, text: 'Mitad persiana', status: 0 },
+        { id: 12, text: 'Horario Verano', status: 0 },
       ],
+
+      gpio_input_list: [
+        { id: 13, text: 'SSID:', status: '#NA'},
+        { id: 14, text: 'IP:', status: '#NA'} ,
+        { id: 15, text: 'Gateway:', status: '#NA'},
+        { id: 16, text: 'DNS:', status: '#NA'},
+        { id: 16, text: 'Hora:', status: '#NA'},
+      ],
+
     }
   },
   mounted() {

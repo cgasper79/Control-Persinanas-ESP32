@@ -2,8 +2,6 @@
 //Declaramos variables para el envío del código de la persina por RF
 RCSwitch mySwitch = RCSwitch();  //Generem mySwitch per l'envio del codi RF
 
-
-
 void InitRF(){
 
   Serial.println("Iniciamos RF");

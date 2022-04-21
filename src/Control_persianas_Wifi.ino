@@ -32,8 +32,9 @@ void setup(void)
 
 void loop()
 {
-  delay(500);
   temporizadoMediaPersiana();
   modoAuto();
   setStateMode();
+  horaNTP();
+  delay(1000);
 }

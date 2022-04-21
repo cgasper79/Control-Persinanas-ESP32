@@ -10,18 +10,23 @@ IPAddress subnet(255, 255, 255, 0);
 IPAddress primaryDNS(1, 1, 1, 1); 
 IPAddress secondaryDNS(1, 0, 0, 1);
 
-//Variables funciones
+//Variables configuración
 bool modoNoche = true;
+bool modoDia = false; 
 bool mitadPersiana = true;
+bool horarioVerano = true;
 
 //variables detección boton subir
 bool botonSubir = false;
 
-//Variables tiempo y modo automático Noche
+//Variables tiempo y modo automático Noche/dia
 int tiempoTotalSubida = 24; //en segundos
 int horaBajadaAuto = 23;
 int minutoBajadaAuto = 59;
 int segundosBajadaAuto = 0;
+int horaSubidaAuto = 8;
+int minutoSubidaAuto = 59;
+int segundosSubidaAuto = 0;
 
 
 //RF
