@@ -3,7 +3,6 @@ int gmtHora;
 WiFiUDP ntpUDP;
 NTPClient timeClient(ntpUDP, "pool.ntp.org");
 
-
 // Poner Hora NTP
 
 void horaNTP(){
@@ -18,15 +17,14 @@ void horaNTP(){
   //Actualizamos hora NTP local
   timeClient.setTimeOffset(gmtHora);
   timeClient.update();
-
-  //Serial.println(timeClient.getFormattedTime());
-  Serial.println(timeClient.getHours());
-  Serial.println(timeClient.getMinutes());
+  horaActual = timeClient.getFormattedTime();  
 }
 
 //Modo automatico persianas
 void modoAuto()
 {
+  horaModoDia = String (horaSubidaAuto) + ':' + String (minutoSubidaAuto);
+  horaModoNoche = String (horaBajadaAuto) + ':' + String (minutoBajadaAuto);
   //Modo Noche
   if (modoNoche){
     if ((horaBajadaAuto == timeClient.getHours()) && (minutoBajadaAuto == timeClient.getMinutes()) 
@@ -40,11 +38,11 @@ void modoAuto()
   if (modoDia){
     if ((horaSubidaAuto == timeClient.getHours()) && (minutoSubidaAuto == timeClient.getMinutes()) 
         && (segundosSubidaAuto == timeClient.getSeconds())) {
-      emisorBajar1();
-      emisorBajar2();
+      emisorSubir1();
+      emisorSubir2();
+      modoDia = false;
     }
   }
-  
 }
 
 

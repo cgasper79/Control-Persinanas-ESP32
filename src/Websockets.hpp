@@ -26,42 +26,29 @@ void updateWeb(int input, bool value)
   //Serial.println(value ? String(" ON") : String(" OFF"));
 }
 
-void updateConection(int input, String value)
+void updateConection(int input2, String value2)
 {
-  String response;
-  StaticJsonDocument<300> doc;
-  doc["command"] = "updateConection";
-  doc["id"] = input;
-  doc["status"] = value;
-  serializeJson(doc, response);
-  ws.textAll(response);
+  String response2;
+  StaticJsonDocument<300> doc2;
+  doc2["command"] = "updateConection";
+  doc2["id"] = input2;
+  doc2["status"] = value2;
+  serializeJson(doc2, response2);
+  ws.textAll(response2);
+  //Serial.print(input2);
+  //Serial.println(value2);
 }
 
-//Envio estado Configuración a Web
+
+//Envio estado Configuración e Información a Websockets
 void setStateMode(){
-  
-  if (modoNoche){
-    updateWeb(9,1);
-  }else{
-    updateWeb(9,0);
-  }
-
-  if (modoDia){
-    updateWeb(10,1);
-  }else{
-    updateWeb(10,0);
-  }
-
-  if (mitadPersiana){
-    updateWeb(11,1);
-  }else{
-    updateWeb(11,0);
-  }
-
-  if (horarioVerano){
-    updateWeb(12,1);
-  }else{
-    updateWeb(12,0);
-  }
-  
+  updateWeb(9,modoNoche);
+  updateWeb(10,modoDia);
+  updateWeb(11,mitadPersiana);
+  updateWeb(12,horarioVerano);
+  updateConection(13,ssid);
+  updateConection(14,miRSSI);
+  updateConection(15,horaModoNoche);
+  updateConection(16,horaModoDia);
+  updateConection(17,horaActual);  
 }

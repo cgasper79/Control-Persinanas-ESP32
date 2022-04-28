@@ -33,12 +33,11 @@ void setGPIO(String id, bool state)
    }   
 }
 
-
 //Función detección botón orden persiana
 void doAction(String actionId)
 {
-   Serial.print("Botón acción: ");
-   Serial.println(actionId);
+  Serial.print("Botón acción: ");
+  Serial.println(actionId);
 
   switch (actionId.toInt()){
     

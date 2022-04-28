@@ -1,6 +1,6 @@
 /*
   RCSwitch - Arduino libary for remote control outlet switches
-  Copyright (c) 2011 Suat Özgür.  All right reserved.
+  Copyright (c) 2011 Suat ï¿½zgï¿½r.  All right reserved.
   
   Contributors:
   - Andre Koehler / info(at)tomate-online(dot)de
@@ -249,7 +249,7 @@ char* RCSwitch::getCodeWordB(int nAddressCode, int nChannelCode, boolean bStatus
    
    char* code[5] = { "FFFF", "0FFF", "F0FF", "FF0F", "FFF0" };
    if (nAddressCode < 1 || nAddressCode > 4 || nChannelCode < 1 || nChannelCode > 4) {
-    return '\0';
+    return NULL;
    }
    for (int i = 0; i<4; i++) {
      sReturn[nReturnPos++] = code[nAddressCode][i];
@@ -322,7 +322,7 @@ char* RCSwitch::getCodeWordC(char sFamily, int nGroup, int nDevice, boolean bSta
   int nReturnPos = 0;
   
   if ( (byte)sFamily < 97 || (byte)sFamily > 112 || nGroup < 1 || nGroup > 4 || nDevice < 1 || nDevice > 4) {
-    return '\0';
+    return NULL;
   }
   
   char* sDeviceGroupCode =  dec2binWzerofill(  (nDevice-1) + (nGroup-1)*4, 4  );
@@ -387,7 +387,7 @@ char* RCSwitch::getCodeWordD(char sGroup, int nDevice, boolean bStatus){
         case 'D':
             sGroupCode = dec2binWcharfill(1, 4, 'F'); break;
         default:
-            return '\0';
+            return NULL;
     }
     
     for (int i = 0; i<4; i++)
@@ -407,7 +407,7 @@ char* RCSwitch::getCodeWordD(char sGroup, int nDevice, boolean bStatus){
         case 3:
             sDevice = dec2binWcharfill(1, 3, 'F'); break;
         default:
-            return '\0';
+            return NULL;
     }
 
     for (int i = 0; i<3; i++)
@@ -454,11 +454,11 @@ void RCSwitch::sendTriState(char* sCodeWord) {
 }
 
 /**
- * edit: Adición comando de estado Quad. Enviar Q
+ * edit: Adiciï¿½n comando de estado Quad. Enviar Q
  */	
 void RCSwitch::sendQuadState(char* sCodeWord) {
   for (int nRepeat=0; nRepeat<nRepeatTransmit; nRepeat++) {  
-	this->sendSync(); //Transmisión Syn-bit aqui se envía ANTES!
+	this->sendSync(); //Transmisiï¿½n Syn-bit aqui se envï¿½a ANTES!
   int i = 0;
     while (sCodeWord[i] != '\0') {
       switch(sCodeWord[i]) {

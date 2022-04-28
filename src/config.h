@@ -10,6 +10,15 @@ IPAddress subnet(255, 255, 255, 0);
 IPAddress primaryDNS(1, 1, 1, 1); 
 IPAddress secondaryDNS(1, 0, 0, 1);
 
+// Variables información conexión
+String miIP;
+String macAddr;
+String mascaraRed;
+String puertaEnlace;
+String miDNS;
+String miRSSI;
+
+
 // variables para tiempo reconexion wifi (cada 30 segundos comprueba)
 unsigned long previousMillis = 0;
 unsigned long interval = 30000;
@@ -31,7 +40,9 @@ int segundosBajadaAuto = 0;
 int horaSubidaAuto = 8;
 int minutoSubidaAuto = 59;
 int segundosSubidaAuto = 0;
-
+String horaActual;
+String horaModoDia;
+String horaModoNoche;
 
 //RF
 char codigoSubir1[] = "0Q0F010FFF0F0Q0F0F0F";  //Constante que almacena el codigo del mando para subir la persiana 1

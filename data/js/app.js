@@ -1,17 +1,13 @@
 Vue.use(VueNativeSock.default, 'ws://' + location.hostname + '/ws', { format: 'json' })
 
+
 //Información
 Vue.component('gpio-input', {
-  props: ['gpio'],
+  props: ['gpio2'],
   template: `
-    <v-list-tile avatar>
-      <v-list-tile-content>
-        <v-list-tile-title><h4>{{gpio.text}}</h4></v-list-tile-title>
-      </v-list-tile-content>
-    <v-list-tile-action>
-      {{gpio.status}}
-    </v-list-tile-action>
-    </v-list-tile>
+    <div class="ma-2">
+      <p><strong>{{gpio2.text}}</strong> : <v-chip color="green" text-color="white">{{gpio2.status}} </v-chip></p>
+    </div>
     `
 })
 
@@ -65,7 +61,6 @@ Vue.component('gpio-output', {
 })
 
 
-
 var app = new Vue({
   el: '#app',
   data: function () {
@@ -95,13 +90,12 @@ var app = new Vue({
       ],
 
       gpio_input_list: [
-        { id: 13, text: 'SSID:', status: '#NA'},
-        { id: 14, text: 'IP:', status: '#NA'} ,
-        { id: 15, text: 'Gateway:', status: '#NA'},
-        { id: 16, text: 'DNS:', status: '#NA'},
-        { id: 16, text: 'Hora:', status: '#NA'},
+        { id: 13, text: 'SSID', status: '#NA'},
+        { id: 14, text: 'RSSI', status: '#NA'},
+        { id: 15, text: 'Hora Modo Noche', status: '#NA'},
+        { id: 16, text: 'Hora Modo Día', status: '#NA'},
+        { id: 17, text: 'Hora Actual', status: '#NA'},
       ],
-
     }
   },
   mounted() {
@@ -109,7 +103,16 @@ var app = new Vue({
       console.log(dr);
       let json = JSON.parse(dr.data); 
       let gpio = this.$data.gpio_output_list.find(gpio => gpio.id == json.id);
-      gpio.status = json.status;
+      let gpio2 = this.$data.gpio_input_list.find(gpio2 => gpio2.id == json.id);
+      if (typeof gpio !== 'undefined'){
+        console.log("indefinido gpio");
+        gpio.status = json.status;
+      }
+      if (typeof gpio2 !== 'undefined'){
+        console.log("indefinido gpio2");
+        gpio2.status = json.status;
+      }
+
     }
   }
 })
