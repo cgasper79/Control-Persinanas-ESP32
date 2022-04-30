@@ -14,7 +14,7 @@ void setGPIO(String id, bool state)
       modoNoche = (state);
       break;
 
-    // Modo Noche
+    // Modo Día
     case 10:
       modoDia = (state);
       break;

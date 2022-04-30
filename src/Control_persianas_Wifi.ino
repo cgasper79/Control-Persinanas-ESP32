@@ -5,6 +5,7 @@
 #include <ESPAsyncWebServer.h>
 #include <ArduinoJson.h>
 #include <RCSwitch.h>
+#include <TickTwo.h>
 
 #include "config.h"
 #include "Server.hpp"
@@ -15,6 +16,15 @@
 #include "ESP32_Utils_AWS.hpp"
 #include "Timer.hpp"
 
+//Funciones
+void setStateMode();
+void horaNTP();
+
+//Instancias temporizador
+TickTwo timer1(setStateMode,1000);
+TickTwo timer2(horaNTP,1000);
+
+
 void setup(void)
 {
   Serial.begin(9600);
@@ -24,18 +34,25 @@ void setup(void)
 
   ConnectWiFi_STA();
 
+  //Iniciamos servicios básicos
   InitServer();
   InitWebSockets();
   InitRF();
   InitTime();
+
+  //Inicio temporizados
+  timer1.start();
+  timer2.start();
+  
 }
 
 void loop()
 {
   temporizadoMediaPersiana();
   modoAuto();
-  setStateMode();
-  horaNTP();
   ReconnectionWifi();
-  delay(1000);
+
+  timer1.update();
+  timer2.update();
+  
 }

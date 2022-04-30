@@ -1,5 +1,6 @@
 AsyncWebSocket ws("/ws");
 
+//Recepción de mensajes del socket
 void ProcessRequest(AsyncWebSocketClient *client, String request)
 {
   StaticJsonDocument<200> doc;
@@ -13,6 +14,7 @@ void ProcessRequest(AsyncWebSocketClient *client, String request)
     setGPIO(doc["id"], (bool)doc["status"]);
 }
 
+//Actualización de configuracion ON/OFF al websockets 
 void updateWeb(int input, bool value)
 {
   String response;
@@ -24,8 +26,10 @@ void updateWeb(int input, bool value)
   ws.textAll(response);
   //Serial.print(input);
   //Serial.println(value ? String(" ON") : String(" OFF"));
+  delay(50);
 }
 
+//Actualicación Información al Websockets
 void updateConection(int input2, String value2)
 {
   String response2;
@@ -37,6 +41,7 @@ void updateConection(int input2, String value2)
   ws.textAll(response2);
   //Serial.print(input2);
   //Serial.println(value2);
+  delay(50);
 }
 
 

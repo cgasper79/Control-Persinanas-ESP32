@@ -23,8 +23,10 @@ void horaNTP(){
 //Modo automatico persianas
 void modoAuto()
 {
+  //Montar hora Subida/bajada para subirlo a Websockets
   horaModoDia = String (horaSubidaAuto) + ':' + String (minutoSubidaAuto);
   horaModoNoche = String (horaBajadaAuto) + ':' + String (minutoBajadaAuto);
+  
   //Modo Noche
   if (modoNoche){
     if ((horaBajadaAuto == timeClient.getHours()) && (minutoBajadaAuto == timeClient.getMinutes()) 
