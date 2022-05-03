@@ -21,9 +21,8 @@ void setStateMode();
 void horaNTP();
 
 //Instancias temporizador
-TickTwo timer1(setStateMode,1000);
+TickTwo timer1(setStateMode,500);
 TickTwo timer2(horaNTP,1000);
-
 
 void setup(void)
 {
@@ -48,11 +47,11 @@ void setup(void)
 
 void loop()
 {
+  currentMillis = millis();
+  
   temporizadoMediaPersiana();
   modoAuto();
   ReconnectionWifi();
-
   timer1.update();
   timer2.update();
-  
 }

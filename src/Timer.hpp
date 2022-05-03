@@ -6,14 +6,12 @@ NTPClient timeClient(ntpUDP, "pool.ntp.org");
 // Poner Hora NTP
 
 void horaNTP(){
-
   //Revisamos horario Verano
   if (horarioVerano){
     gmtHora = 7200;
   } else {
     gmtHora = 3600;
   }
-
   //Actualizamos hora NTP local
   timeClient.setTimeOffset(gmtHora);
   timeClient.update();
@@ -58,17 +56,12 @@ void InitTime(){
 
 void temporizadoMediaPersiana(){
 
-  while (mitadPersiana && botonSubir){ 
+  if ((mitadPersiana) && (botonSubir) && (currentMillis - previousPushMillis >= intervalTotalSubida/2)){
     
-    for (int i=0; i <= (tiempoTotalSubida/2); i++ ){
-      delay(1000);
-      Serial.println ("Temporizado subida persina");
-    }   
+    Serial.println ("Temporizado subida persina");
+    botonSubir = false;
     emisorStop1();
-    delay (10);
     emisorStop2();
-    botonSubir = false;   
   }
-  
-  botonSubir = false;
+
 }

@@ -46,18 +46,17 @@ void ConnectWiFi_STA(bool useStaticIP = true)
 }
 
 // Reconexion Wifi si detecta que no está conectado
-
 void ReconnectionWifi(){
-  unsigned long currentMillis = millis();
-
+  
   miRSSI = String (WiFi.RSSI());
-  if ((WiFi.status() != WL_CONNECTED) && (currentMillis - previousMillis >=interval)) {
+  if ((WiFi.status() != WL_CONNECTED) && (currentMillis - previousWifiMillis >=intervalWifi)) {
     digitalWrite(2, LOW);
     WiFi.disconnect();
     WiFi.reconnect();
-    previousMillis = currentMillis;
-  }else{
-    digitalWrite(2, HIGH);
+    previousWifiMillis = currentMillis;
+    Serial.println("Intento Conexion");
+  } else if (WiFi.status() == WL_CONNECTED){
+      digitalWrite(2, HIGH);
   }
 }
 

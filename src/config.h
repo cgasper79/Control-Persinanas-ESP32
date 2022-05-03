@@ -1,11 +1,11 @@
 //Configuración WIFI
 
-const char* ssid     = "Blanes";
+const char* ssid     = "Cris_Monike";
 const char* password = "gascoing1979";
 const char* hostname = "ESP32_Persianas";
 
-IPAddress ip(192, 168, 0, 5);
-IPAddress gateway(192, 168, 0, 1);
+IPAddress ip(192, 168, 1, 230);
+IPAddress gateway(192, 168, 1, 1);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress primaryDNS(1, 1, 1, 1); 
 IPAddress secondaryDNS(1, 0, 0, 1);
@@ -18,10 +18,15 @@ String puertaEnlace;
 String miDNS;
 String miRSSI;
 
+// variables para tiempo reconexion wifi (cada 30 segundos comprueba) 
+// y tiempo subida persiana
+unsigned long previousWifiMillis = 0;
+unsigned long currentMillis = 0;
+unsigned long previousPushMillis = 0;
+unsigned long intervalWifi = 10000;
+unsigned long intervalTotalSubida = 24000;
 
-// variables para tiempo reconexion wifi (cada 30 segundos comprueba)
-unsigned long previousMillis = 0;
-unsigned long interval = 30000;
+// variables 
 
 //Variables configuración
 bool modoNoche = true;

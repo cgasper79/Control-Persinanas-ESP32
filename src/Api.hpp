@@ -43,7 +43,6 @@ void doAction(String actionId)
     
     case 0:
       emisorSubir1();
-      botonSubir = true;
       break;
 
     case 1:
@@ -56,7 +55,6 @@ void doAction(String actionId)
 
     case 3:
       emisorSubir2();
-      botonSubir = true;
       break;
 
     case 4:
@@ -69,20 +67,16 @@ void doAction(String actionId)
 
     case 6:
       emisorSubir1();
-      delay (10);
       emisorSubir2();
-      botonSubir = true;
       break;
 
     case 7:
       emisorBajar1();
-      delay (10);
       emisorBajar2();
       break;
 
     case 8:
       emisorStop1();
-      delay (10);
       emisorStop2();
       break;
       

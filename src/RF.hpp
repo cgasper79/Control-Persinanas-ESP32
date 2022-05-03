@@ -12,6 +12,8 @@ void InitRF(){
 void emisorSubir1() {
   Serial.println("Subimos persiana 1");
   mySwitch.sendQuadState (codigoSubir1); //Enviamos el código RF para subir la persina 1
+  botonSubir = true;
+  previousPushMillis = millis();
   delay (200);
 }
 
@@ -31,6 +33,8 @@ void emisorStop1() {
 void emisorSubir2() {
   Serial.println("Subimos persiana 2");
   mySwitch.sendQuadState (codigoSubir2); //Enviamos el código RF para subir la persina 2
+  botonSubir = true;
+  previousPushMillis = millis();
   delay (200);
 }
 
