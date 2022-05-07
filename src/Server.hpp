@@ -8,7 +8,7 @@ void InitServer()
   });
   
   // Start ElegantOTA
-  AsyncElegantOTA.begin(&server);
+  AsyncElegantOTA.begin(&server,"cgascon","gascoing1979");
 
   server.begin();
   Serial.println("HTTP server started");
