@@ -6,6 +6,7 @@
 #include <ArduinoJson.h>
 #include <RCSwitch.h>
 #include <TickTwo.h>
+#include <AsyncElegantOTA.h>
 
 #include "config.h"
 #include "Server.hpp"

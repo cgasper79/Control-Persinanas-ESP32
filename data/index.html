@@ -24,7 +24,7 @@
       <v-content class="red lighten-4">
         <v-toolbar elevation="5" class="red accent-1" light
           ><v-icon class="pa-2">mdi-access-point</v-icon>
-          <h3>Control persianas <v-chip color="red" text-color="white">v2.0</v-chip></h3>
+          <h3>Control persianas <v-chip color="red" text-color="white">v2.0 - OTA</v-chip> </h3>
         </v-toolbar>
         <v-container fluid text-xs-center>
           <v-layout class="d-flex">
@@ -118,14 +118,19 @@
             </div>
           </v-layout>
         </v-container>
+        <v-flex text-xs-center>
+          <a href="./update"><v-btn class="pa-3" color="info">Update</v-btn></a>
+        </v-flex>
       </v-content>
       
+      
       <v-footer class="pa-3 red accent-1">
-        <v-flex
-            text-xs-center
-        >
+        
+        <v-flex text-xs-center>
           &copy; {{ new Date().getFullYear() }} - <strong><a href="https://gasperwebdesign.com">Gasperwebdesign</a></strong>
-          </v-flex>
+        </v-flex>
+        
+        
       </v-footer>
 
     </v-app>
