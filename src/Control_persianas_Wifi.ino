@@ -58,4 +58,9 @@ void loop()
   timer1.update();
   timer2.update();
   timer3.update();
+
+  //reinicia cada 7 dias
+  if (currentMillis == 604800000){
+    ESP.restart();
+  }
 }
