@@ -57,3 +57,8 @@ void setStateMode(){
   updateConection(16,horaModoDia);
   updateConection(17,horaActual);  
 }
+
+//Limitar número de clientes websockets y cerrar los que no se utilizan
+void cleanClientsSockets(){
+  ws.cleanupClients();
+}

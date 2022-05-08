@@ -20,10 +20,12 @@
 //Funciones
 void setStateMode();
 void horaNTP();
+void cleanClientsSockets();
 
 //Instancias temporizador
 TickTwo timer1(setStateMode,500);
 TickTwo timer2(horaNTP,1000);
+TickTwo timer3(cleanClientsSockets,2000);
 
 void setup(void)
 {
@@ -55,4 +57,5 @@ void loop()
   ReconnectionWifi();
   timer1.update();
   timer2.update();
+  timer3.update();
 }
