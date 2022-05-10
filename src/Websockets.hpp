@@ -15,7 +15,7 @@ void ProcessRequest(AsyncWebSocketClient *client, String request)
 }
 
 //Actualización de configuracion ON/OFF al websockets 
-void updateWeb(int input, bool value)
+void updateConfiguration(int input, bool value)
 {
   String response;
   StaticJsonDocument<300> doc;
@@ -30,7 +30,7 @@ void updateWeb(int input, bool value)
 }
 
 //Actualicación Información al Websockets
-void updateConection(int input2, String value2)
+void updateInformation(int input2, String value2)
 {
   String response2;
   StaticJsonDocument<300> doc2;
@@ -47,15 +47,15 @@ void updateConection(int input2, String value2)
 
 //Envio estado Configuración e Información a Websockets
 void setStateMode(){
-  updateWeb(9,modoNoche);
-  updateWeb(10,modoDia);
-  updateWeb(11,mitadPersiana);
-  updateWeb(12,horarioVerano);
-  updateConection(13,ssid);
-  updateConection(14,miRSSI);
-  updateConection(15,horaModoNoche);
-  updateConection(16,horaModoDia);
-  updateConection(17,horaActual);  
+  updateConfiguration(9,modoNoche);
+  updateConfiguration(10,modoDia);
+  updateConfiguration(11,mitadPersiana);
+  updateConfiguration(12,horarioVerano);
+  updateInformation(13,ssid);
+  updateInformation(14,miRSSI);
+  updateInformation(15,horaModoNoche);
+  updateInformation(16,horaModoDia);
+  updateInformation(17,horaActual);  
 }
 
 //Limitar número de clientes websockets y cerrar los que no se utilizan
