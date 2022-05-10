@@ -26,7 +26,7 @@ void updateWeb(int input, bool value)
   ws.textAll(response);
   //Serial.print(input);
   //Serial.println(value ? String(" ON") : String(" OFF"));
-  delay(50);
+  delay(10);
 }
 
 //Actualicación Información al Websockets
@@ -41,7 +41,7 @@ void updateConection(int input2, String value2)
   ws.textAll(response2);
   //Serial.print(input2);
   //Serial.println(value2);
-  delay(50);
+  delay(10);
 }
 
 
