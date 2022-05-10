@@ -45,6 +45,7 @@ void setup(void)
   //Inicio temporizados
   timer1.start();
   timer2.start();
+  timer3.start();
   
 }
 

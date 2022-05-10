@@ -14,20 +14,20 @@ void emisorSubir1() {
   mySwitch.sendQuadState (codigoSubir1); //Enviamos el código RF para subir la persina 1
   botonSubir = true;
   previousPushMillis = millis();
-  delay (200);
+  delay (100);
 }
 
 
 void emisorBajar1() {
   Serial.println("Bajamos persiana 1");
   mySwitch.sendQuadState (codigoBajar1); //Enviamos el código RF para bajar la persina 1
-  delay (200);
+  delay (100);
 }
 
 void emisorStop1() {
   Serial.println("Paramos persiana 1");
   mySwitch.sendQuadState (codigoStop1); //Enviamos el código RF para Stop la persina 1
-  delay (200);
+  delay (100);
 }
 
 void emisorSubir2() {
@@ -35,17 +35,17 @@ void emisorSubir2() {
   mySwitch.sendQuadState (codigoSubir2); //Enviamos el código RF para subir la persina 2
   botonSubir = true;
   previousPushMillis = millis();
-  delay (200);
+  delay (100);
 }
 
 void emisorBajar2() {
   Serial.println("Bajamos persiana 2");
   mySwitch.sendQuadState (codigoBajar2); //Enviamos el código RF para bajar la persina 2
-  delay (200);
+  delay (100);
 }
 
 void emisorStop2() {
   Serial.println("Paramos persiana 2");
   mySwitch.sendQuadState (codigoStop2); //Enviamos el código RF para Stop la persina 2
-  delay (200);
+  delay (100);
 }
