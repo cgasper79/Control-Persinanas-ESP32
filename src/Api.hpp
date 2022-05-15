@@ -1,6 +1,6 @@
 
 //Detección modos Configuración
-void setGPIO(String id, bool state)
+void setConfiguration(String id, bool state)
 {
    //Serial.print("Set GPIO ");
    //Serial.print(id);

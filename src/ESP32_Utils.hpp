@@ -18,24 +18,23 @@ void ConnectWiFi_STA(bool useStaticIP = true)
 
    Serial.print("IP address:\t");
    Serial.println(WiFi.localIP());
-   miIP = String (WiFi.localIP());
+   miIP = (WiFi.localIP());
    
-
    Serial.print("ESP Mac Address: ");
    Serial.println(WiFi.macAddress());
    macAddr = WiFi.macAddress();
 
    Serial.print("Subnet Mask: ");
    Serial.println(WiFi.subnetMask());
-   mascaraRed = String (WiFi.subnetMask());
+   mascaraRed = (WiFi.subnetMask());
 
    Serial.print("Gateway IP: ");
    Serial.println(WiFi.gatewayIP());
-   puertaEnlace = String (WiFi.gatewayIP());
+   puertaEnlace = (WiFi.gatewayIP());
 
    Serial.print("DNS: ");
    Serial.println(WiFi.dnsIP());
-   miDNS = String (WiFi.dnsIP());
+   miDNS = (WiFi.dnsIP());
 
    Serial.print("RRSI: ");
    Serial.println(WiFi.RSSI());

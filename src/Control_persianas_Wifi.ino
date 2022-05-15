@@ -7,6 +7,8 @@
 #include <RCSwitch.h>
 #include <TickTwo.h>
 #include <AsyncElegantOTA.h>
+#include <AsyncTCP.h>
+
 
 #include "config.h"
 #include "Server.hpp"
@@ -14,18 +16,21 @@
 #include "API.hpp"
 #include "Websockets.hpp"
 #include "ESP32_Utils.hpp"
-#include "ESP32_Utils_AWS.hpp"
 #include "Timer.hpp"
+#include "ESP32_Utils_AWS.hpp"
+
 
 //Funciones
-void setStateMode();
+void sendWebsocketsDinamic();
 void horaNTP();
 void cleanClientsSockets();
+void timeStartUp();
 
 //Instancias temporizador
-TickTwo timer1(setStateMode,500);
+TickTwo timer1(sendWebsocketsDinamic,1000);
 TickTwo timer2(horaNTP,1000);
 TickTwo timer3(cleanClientsSockets,2000);
+TickTwo timer4(timeStartUp,30000);
 
 void setup(void)
 {
@@ -46,19 +51,22 @@ void setup(void)
   timer1.start();
   timer2.start();
   timer3.start();
+  timer4.start();
   
 }
 
 void loop()
 {
   currentMillis = millis();
-  
+
   temporizadoMediaPersiana();
   modoAuto();
   ReconnectionWifi();
   timer1.update();
   timer2.update();
   timer3.update();
+  timer4.update();
+
 
   //reinicia cada 7 dias
   if (currentMillis == 604800000){

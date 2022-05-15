@@ -6,5 +6,5 @@ function actualizar() {
   }
 
 
-setInterval("actualizar()", 180000);
+//setInterval("actualizar()", 180000);
 

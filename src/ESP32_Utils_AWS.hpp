@@ -6,7 +6,8 @@ void onWsEvent(AsyncWebSocket * server, AsyncWebSocketClient * client, AwsEventT
 			client->printf("Cliente %u", client->id());
 			Serial.printf("Cliente [%u]\n", client->id());
 			//client->ping();
-			setStateMode();
+			sendWebsocketsStatic();
+			timeStartUp();
 			break;
 		
 		case WS_EVT_DISCONNECT:

@@ -1,22 +1,23 @@
 //Configuración WIFI
 
-const char* ssid     = "Blanes";
+const char* ssid     = "Cris_Monike";
 const char* password = "gascoing1979";
 const char* hostname = "ESP32_Persianas";
 
-IPAddress ip(192, 168, 0, 5);
-IPAddress gateway(192, 168, 0, 1);
+IPAddress ip(192, 168, 1, 230);
+IPAddress gateway(192, 168, 1, 1);
 IPAddress subnet(255, 255, 255, 0);
 IPAddress primaryDNS(1, 1, 1, 1); 
 IPAddress secondaryDNS(1, 0, 0, 1);
 
 // Variables información conexión
-String miIP;
-String macAddr;
-String mascaraRed;
-String puertaEnlace;
-String miDNS;
+IPAddress miIP;
+IPAddress mascaraRed;
+IPAddress puertaEnlace;
+IPAddress miDNS;
 String miRSSI;
+String macAddr;
+
 
 // variables para tiempo reconexion wifi (cada 30 segundos comprueba) 
 // y tiempo subida persiana
@@ -46,6 +47,7 @@ int segundosSubidaAuto = 0;
 String horaActual;
 String horaModoDia;
 String horaModoNoche;
+String timeUntilStartUp;
 
 //RF
 char codigoSubir1[] = "0Q0F010FFF0F0Q0F0F0F";  //Constante que almacena el codigo del mando para subir la persiana 1
