@@ -68,12 +68,15 @@ void temporizadoMediaPersiana(){
 
 //Calculamos tiempo encendido en horas
 void timeStartUp(){
-  int minutsStartUP = (currentMillis / 1000) / 60;
+  int secondsStartUP = currentMillis / 1000;
+  int minutsStartUP = secondsStartUP / 60;
   int hoursStartUP = minutsStartUP / 60;
   int daysStartUP = hoursStartUP / 24;
 
-  timeUntilStartUp = String (daysStartUP) + 'd' + ' ' + String (hoursStartUP) + 'h' + ' ' + String (minutsStartUP) + 'm' ; 
+  timeUntilStartUp = String (daysStartUP) + 'd' + ' ' + String (hoursStartUP % 24) + 'h' + ' ' + String (minutsStartUP % 60) + 'm'; 
+  
   Serial.println (timeUntilStartUp);
 
   updateInformationString(18,timeUntilStartUp);
+
 }

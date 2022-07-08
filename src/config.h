@@ -1,7 +1,7 @@
 //Configuración WIFI
 
-const char* ssid     = "Cris_Monike";
-const char* password = "gascoing1979";
+const char* ssid     = "Domo";
+const char* password = "domotica2022";
 const char* hostname = "ESP32_Persianas";
 
 IPAddress ip(192, 168, 1, 230);
